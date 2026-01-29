@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@theme {
+  --breakpoint-xxl: 90rem; /* 1440px - entre xl y 2xl */
+  --breakpoint-3xl: 101.25rem; /* 1620px */
+  --breakpoint-4xl: 107.5rem; /* 1720px */
+  --breakpoint-5xl: 113rem; /* 1808px */
+  --breakpoint-6xl: 120rem; /* 1920px */ /* 1920px */
+
+  --font-display: "Inter", sans-serif;
+
+  /* === BOTONES === */
+  --color-boton: #8b5a3c; /*Marron*/
+  --color-boton-hover: #5f4429; /*Marron oscuro*/
+  --color-boton-alt: #cf4b00;
+
+  /* === TEXTOS === */
+  --color-texto-sutil: #8b7355; /*Marron muy clarito*/
+  --color-texto-marron: #8b7355; /*Marron clarito*/
+  --color-texto: #3d2f1f; /*Marron muy oscuro*/
+  --color-principal: #2c2c2c; /*Marron negro*/
+  --color-texto-secundario: #6b6b6b; /*Gris*/
+
+  /* === FONDO === */
+  --color-borde: #c9b89f; /*Marron más clarito*/
+
+  /* === FONDO === */
+  --color-fondo-claro: #f5f4ed; /*Beige*/
+  --color-fondo-medio: #d9c8b4; /*Beige medio*/
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/*
+--color-fondo-medio: #d4c4b0; 
+--color-fondo-claro: #faf9ee;
+--color-fondo-medio: #d9c8b4;
+--color-boton: #a0613f;           
+--color-boton-hover: #7d4a2f;*/
+
+/*  --color-fondo-claro: #faf9ee;      
+--color-fondo-medio: #c4b5a0;      
+--color-boton: #8b6f47;           
+--color-boton-hover: #6b5437;*/
+
+/*
+    --color-fondo-claro: #faf9ee; 
+  --color-fondo-medio: #dccfc0;      */
