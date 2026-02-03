@@ -3,8 +3,9 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Inicio", href: "#hero", id: "hero" },
@@ -12,12 +13,6 @@ const navigation = [
   { name: "Habilidades", href: "#skills", id: "skills" },
   { name: "Contacto", href: "#contact", id: "contact" },
 ];
-
-
-
-
-// ESTO ES LO DE CLAUDE QUE NO "ENTIENDO"
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,59 +28,62 @@ export const Navbar = () => {
       }))
       .filter((s) => s.element);
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollPosition = window.scrollY + 150;
 
-      // Si estamos al final de la página, siempre Contact
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 10
-      ) {
-        setActiveSection("contact");
-        return;
-      }
-
-      // Buscar qué sección está visible
-      let currentSection = "hero";
-
-      for (const section of sections) {
-        if (section.element.offsetTop <= scrollPosition) {
-          currentSection = section.id;
+        if (
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 10
+        ) {
+          setActiveSection("contact");
+          ticking = false;
+          return;
         }
-      }
 
-      setActiveSection(currentSection);
+        let currentSection = "hero";
+
+        for (const section of sections) {
+          if (section.element.offsetTop <= scrollPosition) {
+            currentSection = section.id;
+          }
+        }
+
+        setActiveSection(currentSection);
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Inicializar
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
-// AQUI ACABA
-
   return (
-    <>
-      {/* CAMBIADO */}
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <Disclosure
         as="nav"
         className="fixed top-0 left-0 right-0 z-50 bg-fondo-claro/95 backdrop-blur-sm border-b border-gray-200/30"
       >
-        <div className="mx-auto max-w-full  px-2 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              {/* Mobile menu button*/}
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon
+                <Menu
                   aria-hidden="true"
                   className="block size-6 group-data-open:hidden"
                 />
-                <XMarkIcon
+                <X
                   aria-hidden="true"
                   className="hidden size-6 group-data-open:block"
                 />
@@ -129,7 +127,10 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <DisclosurePanel className="sm:hidden">
+        <DisclosurePanel
+          transition
+          className="origin-top transition duration-200 ease-out data-closed:-translate-y-6 data-closed:opacity-0 sm:hidden"
+        >
           <div className="space-y-1 px-2 pt-2 pb-3">
             {navigation.map((item) => (
               <DisclosureButton
@@ -149,6 +150,6 @@ export const Navbar = () => {
           </div>
         </DisclosurePanel>
       </Disclosure>
-    </>
+    </motion.div>
   );
 };

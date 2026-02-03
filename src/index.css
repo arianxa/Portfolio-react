@@ -31,6 +31,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 /*
 --color-fondo-medio: #d4c4b0; 
 --color-fondo-claro: #faf9ee;

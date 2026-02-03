@@ -1,4 +1,5 @@
 import img_profile from "../assets/img/img_profile.jpeg";
+import { motion } from "framer-motion";
 
 export const Aboutme = () => {
   return (
@@ -6,21 +7,32 @@ export const Aboutme = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Imagen */}
-          <div className="flex justify-center lg:justify-start">
+          <motion.div
+            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <div className="relative">
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={img_profile}
-                  alt="Tu nombre"
+                  alt="Arantxa Ordoyo"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contenido */}
-          <div>
-            <h2 className=" text-5xl md:text-6xl font-bold mb-4 text-texto">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          >
+            <h2 className="text-5xl md:text-6xl font-bold mb-4 text-texto">
               Sobre mí
             </h2>
             <div className="w-20 h-1 bg-boton mb-6"></div>
@@ -43,7 +55,7 @@ export const Aboutme = () => {
               independiente como en equipo. Me motiva seguir creciendo
               profesionalmente y contribuir en proyectos innovadores.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
