@@ -1,48 +1,71 @@
 @import "tailwindcss";
 @theme {
-  --breakpoint-xxl: 90rem; /* 1440px - entre xl y 2xl */
-  --breakpoint-3xl: 101.25rem; /* 1620px */
-  --breakpoint-4xl: 107.5rem; /* 1720px */
-  --breakpoint-5xl: 113rem; /* 1808px */
-  --breakpoint-6xl: 120rem; /* 1920px */ /* 1920px */
+  --breakpoint-3xl: 101.25rem;
+  --breakpoint-4xl: 107.5rem;
 
-  --font-display: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
 
-  /* === BOTONES === */
-  --color-boton: #8b5a3c; /*Marron*/
-  --color-boton-hover: #5f4429; /*Marron oscuro*/
-  --color-boton-alt: #cf4b00;
+  /* === PRIMARY / ACCENT === */
+  --color-primary: #0df2f2;
+  --color-primary-hover: #0ad4d4;
+  --color-accent-purple: #8b5cf6;
 
-  /* === TEXTOS === */
-  --color-texto-sutil: #8b7355; /*Marron muy clarito*/
-  --color-texto-marron: #8b7355; /*Marron clarito*/
-  --color-texto: #3d2f1f; /*Marron muy oscuro*/
-  --color-principal: #2c2c2c; /*Marron negro*/
-  --color-texto-secundario: #6b6b6b; /*Gris*/
+  /* === BACKGROUNDS === */
+  --color-bg-dark: #0F172A;
+  --color-bg-card: #1a3030;
+  --color-bg-input: #183434;
+  --color-bg-elevated: #224949;
 
-  /* === FONDO === */
-  --color-borde: #c9b89f; /*Marron más clarito*/
+  /* === TEXTS === */
+  --color-texto: #f1f5f9;
+  --color-texto-secundario: #94a3b8;
+  --color-texto-sutil: #64748b;
 
-  /* === FONDO === */
-  --color-fondo-claro: #f5f4ed; /*Beige*/
-  --color-fondo-medio: #d9c8b4; /*Beige medio*/
+  /* === BORDERS === */
+  --color-borde: #2a4d4d;
+  --color-borde-glow: rgba(13, 242, 242, 0.2);
 }
 
 html {
   scroll-behavior: smooth;
 }
-/*
---color-fondo-medio: #d4c4b0; 
---color-fondo-claro: #faf9ee;
---color-fondo-medio: #d9c8b4;
---color-boton: #a0613f;           
---color-boton-hover: #7d4a2f;*/
 
-/*  --color-fondo-claro: #faf9ee;      
---color-fondo-medio: #c4b5a0;      
---color-boton: #8b6f47;           
---color-boton-hover: #6b5437;*/
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: var(--color-bg-dark);
+  color: var(--color-texto);
+}
 
-/*
-    --color-fondo-claro: #faf9ee; 
-  --color-fondo-medio: #dccfc0;      */
+/* Glass effect */
+.glass-nav {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(13, 242, 242, 0.1);
+}
+
+/* Hero gradient bg */
+.hero-gradient {
+  background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(13, 242, 242, 0.1) 0%, transparent 40%);
+}
+
+/* Neon glow on focus */
+.neon-glow:focus {
+  box-shadow: 0 0 15px rgba(13, 242, 242, 0.3);
+}
+
+/* Project card hover glow */
+.project-card-glow:hover {
+  box-shadow: 0 0 20px rgba(13, 242, 242, 0.15);
+}
+
+/* View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

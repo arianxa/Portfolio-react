@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experience &amp; Projects | DevPortfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df2f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .project-card:hover {
+            box-shadow: 0 0 20px rgba(13, 242, 242, 0.15);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<div class="relative flex h-auto w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-2">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-b-[#224949] px-4 lg:px-10 py-4">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">DevPortfolio</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Resume</span>
+</button>
+</div>
+</header>
+</div>
+</div>
+</div>
+</div>
+<!-- Experience Section -->
+<section class="px-4 md:px-20 lg:px-40 flex justify-center py-10" id="experience">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+<div>
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest mb-2 px-4">Professional Path</h2>
+<h2 class="text-[32px] md:text-[42px] font-bold leading-tight tracking-[-0.02em] px-4">Experience</h2>
+</div>
+<div class="flex gap-3 p-4 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#224949] px-4 border border-transparent hover:border-primary/50 transition-all cursor-default">
+<p class="text-sm font-medium">Python</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#224949] px-4 border border-transparent hover:border-primary/50 transition-all cursor-default">
+<p class="text-sm font-medium">SQL</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-200 dark:bg-[#224949] px-4 border border-transparent hover:border-primary/50 transition-all cursor-default">
+<p class="text-sm font-medium">JavaScript</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-[40px_1fr] gap-x-6 px-4">
+<!-- Entry 1 -->
+<div class="flex flex-col items-center gap-1 pt-3">
+<div class="text-primary p-1 rounded-full border border-primary/30 bg-primary/10">
+<span class="material-symbols-outlined text-[24px]">work</span>
+</div>
+<div class="w-[2px] bg-gradient-to-b from-primary to-[#316868] h-full grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3 pb-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+<p class="text-xl font-bold text-slate-900 dark:text-white">Senior Full Stack Developer <span class="text-primary font-normal">@ TechFlow Solutions</span></p>
+<p class="text-slate-500 dark:text-[#90cbcb] text-sm font-medium bg-slate-100 dark:bg-[#224949]/30 px-3 py-1 rounded-full">Jan 2022 - Present</p>
+</div>
+<ul class="space-y-3 mt-4 text-slate-600 dark:text-slate-300">
+<li class="flex items-start gap-2">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>Architected and maintained scalable microservices using Python (Flask) and React, improving system response time by 40%.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>Optimized complex PostgreSQL queries and schema designs, reducing data retrieval latency for high-traffic dashboards.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary mt-1 material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>Led a team of 5 developers in the migration from a monolithic architecture to a Dockerized container environment.</span>
+</li>
+</ul>
+</div>
+<!-- Entry 2 -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-[#316868] h-8"></div>
+<div class="text-primary/70 p-1 rounded-full border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-[24px]">developer_mode_tv</span>
+</div>
+<div class="w-[2px] bg-[#316868] h-full grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3 pb-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+<p class="text-xl font-bold text-slate-900 dark:text-white">Full Stack Engineer <span class="text-primary/70 font-normal">@ Innovate Studio</span></p>
+<p class="text-slate-500 dark:text-[#90cbcb] text-sm font-medium bg-slate-100 dark:bg-[#224949]/30 px-3 py-1 rounded-full">Jun 2020 - Dec 2021</p>
+</div>
+<ul class="space-y-3 mt-4 text-slate-600 dark:text-slate-300">
+<li class="flex items-start gap-2">
+<span class="text-primary/70 mt-1 material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>Developed responsive UI components using React and Redux, ensuring seamless user experience across all devices.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary/70 mt-1 material-symbols-outlined text-sm">arrow_forward_ios</span>
+<span>Implemented RESTful APIs for internal business logic processing and third-party integrations.</span>
+</li>
+</ul>
+</div>
+<!-- Entry 3 -->
+<div class="flex flex-col items-center gap-1 pb-3">
+<div class="w-[2px] bg-[#316868] h-8"></div>
+<div class="text-primary/50 p-1 rounded-full border border-primary/10 bg-primary/5">
+<span class="material-symbols-outlined text-[24px]">code</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+<p class="text-xl font-bold text-slate-900 dark:text-white">Junior Developer <span class="text-primary/50 font-normal">@ StartUp Hub</span></p>
+<p class="text-slate-500 dark:text-[#90cbcb] text-sm font-medium bg-slate-100 dark:bg-[#224949]/30 px-3 py-1 rounded-full">Jan 2019 - May 2020</p>
+</div>
+<p class="mt-4 text-slate-600 dark:text-slate-300">Focused on bug fixing, feature implementation in JavaScript, and learning backend integration patterns.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="px-4 md:px-20 lg:px-40 flex justify-center py-20 bg-slate-100 dark:bg-background-dark/50" id="projects">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="mb-12 px-4">
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest mb-2">Portfolio Selection</h2>
+<h2 class="text-[32px] md:text-[42px] font-bold leading-tight tracking-[-0.02em]">Featured Projects</h2>
+</div>
+<!-- Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+<!-- Project Card 1 -->
+<div class="project-card flex flex-col rounded-xl overflow-hidden bg-white dark:bg-[#1a3030] border border-slate-200 dark:border-[#2a4d4d]">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern analytics dashboard interface with dark blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4dZJzgci-R-7baJnVuoa4XBwdK1olrZrDKgzdPJ5LiyX9PhMxvuigC0V_B2P7Smzr4av8G1OS8I_eA-RzMrDT0bKzpMIr8anSgD-DTZzmx5Ggob6VMt9GBE1J2ruXpz2d88JNQk9IsQA8N-f2pIiw5wXsaNm6IZGKR9FshRNv4mcvFkNbzNmV-_dfgdE38TYVnmHRFCJ6P6-Uz2QjoJzm-ydFk5Hi2J83mcPUboyzGyOcskIQW5Co4L5WfkrPbctenM5wxVtAhzw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/90 text-background-dark uppercase">React</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white backdrop-blur-sm uppercase">Docker</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex flex-col grow">
+<h3 class="text-xl font-bold mb-2">CloudOps Dashboard</h3>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                            A real-time monitoring solution for containerized environments. Features live metrics, auto-scaling alerts, and resource allocation graphs.
+                        </p>
+<div class="mt-auto flex items-center justify-between gap-3">
+<a class="flex-1 flex items-center justify-center gap-2 bg-primary text-background-dark py-2 px-4 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+                                Demo en vivo
+                            </a>
+<a class="flex items-center justify-center p-2 rounded-lg border border-slate-300 dark:border-[#316868] hover:bg-slate-200 dark:hover:bg-[#316868] transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="project-card flex flex-col rounded-xl overflow-hidden bg-white dark:bg-[#1a3030] border border-slate-200 dark:border-[#2a4d4d]">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Cyberpunk style database management interface visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7h-Fzsu3gZpfb80kvQgCg4WMbBMaWuH2BGm1SslVKBW-cVwIcFVDDf0VkWH3nu-QOxeYF7dYZ9JF3XpVWeNztyQft1W-FeY88KTnzTo3690myzAw5xv9GrIJsXHFgNS14Gp_m88Dm1-rjx_SpcY8WO9bE3fuVWXbd8zVNjWfecdKfXz3Z2jbjO3s122JCAVfyPGvng0IQiqRTCtOIrYGuDYFUD13YYKr05yxdWEStT5tMIcW68kZxCRTpPkxn-4NdXRq5ldfo1o0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/90 text-background-dark uppercase">Flask</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white backdrop-blur-sm uppercase">SQL</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex flex-col grow">
+<h3 class="text-xl font-bold mb-2">DataStream API</h3>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                            High-performance RESTful API built with Flask. Handles over 10k requests per second with optimized PostgreSQL indexing and caching.
+                        </p>
+<div class="mt-auto flex items-center justify-between gap-3">
+<a class="flex-1 flex items-center justify-center gap-2 bg-primary text-background-dark py-2 px-4 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+                                Demo en vivo
+                            </a>
+<a class="flex items-center justify-center p-2 rounded-lg border border-slate-300 dark:border-[#316868] hover:bg-slate-200 dark:hover:bg-[#316868] transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="project-card flex flex-col rounded-xl overflow-hidden bg-white dark:bg-[#1a3030] border border-slate-200 dark:border-[#2a4d4d]">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract glowing network nodes and digital connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmzy-8xRiOtKK3KPg5sXF-lipJxYYxhdpa7DCFAIzy9942A0KyYNP_NYOawU_dfhu_e4vbROTOPp7eJANpZUCAIgMkhODQCqAjo2BjjKCZhiDJTuf9RuHnct7_jq_AK7QsfS_wjUi1u_jfH0s_sZdHfi-XCRZKkGOMx1OSyO0RyOL2_jM1wDgYwM2G_2DVx1Qyufsm2b6Qjvhwb5C-oKtA3SrgI-UvRtNyfAeachw5eJP4T1JJf6cmfKnTPkL47AL5VuokHpP1k2A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<div class="flex gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/90 text-background-dark uppercase">React</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white backdrop-blur-sm uppercase">Tailwind</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex flex-col grow">
+<h3 class="text-xl font-bold mb-2">Neural Portfolio</h3>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                            This current portfolio template. A clean, high-performance web experience focused on typography, dark mode, and developer presence.
+                        </p>
+<div class="mt-auto flex items-center justify-between gap-3">
+<a class="flex-1 flex items-center justify-center gap-2 bg-primary text-background-dark py-2 px-4 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity" href="#">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+                                Demo en vivo
+                            </a>
+<a class="flex items-center justify-center p-2 rounded-lg border border-slate-300 dark:border-[#316868] hover:bg-slate-200 dark:hover:bg-[#316868] transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- More Projects CTA -->
+<div class="mt-16 flex justify-center">
+<a class="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors font-medium" href="#">
+                    Ver todos los proyectos en GitHub
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer Simple -->
+<footer class="px-4 md:px-20 lg:px-40 py-10 border-t border-slate-200 dark:border-[#224949] flex justify-center">
+<div class="layout-content-container flex flex-col md:flex-row items-center justify-between max-w-[1200px] flex-1 gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2024 DevPortfolio. Built with React + Flask inspiration.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+</body></html>

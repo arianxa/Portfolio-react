@@ -1,79 +1,86 @@
+import { motion } from "framer-motion";
+import { Code, Server, Wrench } from "lucide-react";
+
+const categories = [
+  { label: "Frontend", icon: Code, items: ["React", "JavaScript", "HTML/CSS"] },
+  { label: "Backend", icon: Server, items: ["Node.js", "Java", "MySQL"] },
+  { label: "Herramientas", icon: Wrench, items: ["Git"] },
+];
+
+const containerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const categoryVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } },
+};
+
 export const Skills = () => {
-  const skills = {
-    frontend: ["React", "JavaScript", "HTML/CSS"],
-    backend: ["Node.js", "Java", "MySQL"],
-    mobile: ["Android"],
-    tools: ["Git"],
-  };
   return (
-     <section id="skills" className="py-20 bg-fondo-medio">
-  <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-    
-    {/* Contenedor */}
-    <div className="bg-fondo-claro rounded-3xl shadow-2xl p-10 md:p-14 border-2 border-borde ">
-      
-      {/* Título dentro del contenedor */}
-      <div className="text-center mb-12 pb-4  border-b-2 border-fondo-medio">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-texto">
-          Habilidades
-        </h2>
-    
-      </div>
-      
-      {/* Frontend */}
-      <div className="mb-12">
-        <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-4xl font-bold text-texto">Frontend</h3>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {skills.frontend.map((skill) => (
-            <span
-              key={skill}
-              className="px-5 py-2 bg-fondo-medio rounded-full text-lg font-medium text-texto hover:bg-boton hover:text-white transition-all duration-300 cursor-pointer hover:scale-105"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
+    <section id="skills" className="relative py-24">
+      <div className="absolute inset-0 bg-linear-to-b from-bg-dark via-bg-card/20 to-bg-dark pointer-events-none" />
 
-      {/* Backend */}
-      <div className="mb-12">
-        <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-4xl font-bold text-texto">Backend</h3>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {skills.backend.map((skill) => (
-            <span
-              key={skill}
-              className="px-5 py-2 bg-fondo-medio rounded-full text-lg font-medium text-texto hover:bg-boton hover:text-white transition-all duration-300 cursor-pointer hover:scale-105"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-      {/* Tools */}
-      <div>
-        <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-4xl font-bold text-texto">Herramientas</h3>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {skills.tools.map((skill) => (
-            <span
-              key={skill}
-              className="px-5 py-2 bg-fondo-medio rounded-full text-lg font-medium text-texto hover:bg-boton hover:text-white transition-all duration-300 cursor-pointer hover:scale-105"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">
+            Tech Stack
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-texto">
+            Habilidades
+          </h2>
+        </motion.div>
 
-    </div>
-  </div>
-</section>
-
+        {/* Card */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="bg-bg-card rounded-2xl border border-borde p-10 md:p-14 space-y-12"
+        >
+          {categories.map((cat) => (
+            <motion.div key={cat.label} variants={categoryVariants}>
+              <div className="flex items-center gap-3 mb-6">
+                <cat.icon className="w-6 h-6 text-primary" />
+                <h3 className="text-2xl font-bold text-texto">{cat.label}</h3>
+              </div>
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="flex flex-wrap gap-3"
+              >
+                {cat.items.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    variants={tagVariants}
+                    whileHover={{ scale: 1.08, borderColor: "rgba(13,242,242,0.5)" }}
+                    className="px-5 py-2.5 bg-bg-elevated rounded-full text-lg font-medium text-texto border border-borde cursor-default transition-colors"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
