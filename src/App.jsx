@@ -1,4 +1,3 @@
-import ScrollToTop from "./components/ScrollToTop";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Aboutme } from "./components/Aboutme";
@@ -9,7 +8,7 @@ import Contact from "./components/Contact";
 
 export const App = () => {
   return (
-    <ScrollToTop>
+    <>
       <Navbar />
       <Hero />
       <Aboutme />
@@ -17,7 +16,7 @@ export const App = () => {
       <Skills />
       <Contact />
       <Footer />
-    </ScrollToTop>
+    </>
   );
 };
 
