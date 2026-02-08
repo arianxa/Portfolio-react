@@ -1,7 +1,16 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import img_profile from "../assets/img/img_profile.jpeg";
 import { motion } from "framer-motion";
 
 export const Aboutme = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
   return (
     <section id="aboutme" className="py-20 bg-fondo-medio">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,21 +43,11 @@ export const Aboutme = () => {
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-4 text-texto">
               Sobre mí
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-texto">
+              Conóceme
             </h2>
-            <div className="w-20 h-1 bg-boton mb-6"></div>
-
-            <p className="text-lg text-principal mb-6">
-              Soy una persona trabajadora, honesta y apasionada por la
-              tecnología. Siempre estoy lista para aprender nuevas habilidades y
-              enfrentar nuevos desafíos.
-            </p>
-
-            <p className="text-lg text-principal mb-6">
-              Llevo seis años en formación continua en programación y diseño
-              web, especializándome en React, JavaScript y HTML/CSS. Me encanta
-              crear experiencias digitales que sean tanto funcionales como
-              visualmente atractivas.
-            </p>
+            <div className="w-16 h-1 bg-primary rounded-full mb-8" />
 
             <p className="text-lg text-principal mb-8">
               Soy amable, colaborativa y puedo trabajar tanto de forma

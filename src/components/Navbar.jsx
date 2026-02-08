@@ -20,12 +20,10 @@ function classNames(...classes) {
 
 export const Navbar = () => {
   const [activeSection, setActiveSection] = useState("hero");
+
   useEffect(() => {
     const sections = navigation
-      .map((item) => ({
-        id: item.id,
-        element: document.getElementById(item.id),
-      }))
+      .map((item) => ({ id: item.id, element: document.getElementById(item.id) }))
       .filter((s) => s.element);
 
     let ticking = false;
@@ -56,7 +54,6 @@ export const Navbar = () => {
         ticking = false;
       });
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
@@ -89,40 +86,28 @@ export const Navbar = () => {
                 />
               </DisclosureButton>
             </div>
-            <div className="flex items-center justify-center sm:items-stretch sm:justify-start pl-4">
-              <div className="flex shrink-0 items-center">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-boton rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">A</span>
-                  </div>
-                  <span className="text-lg font-semibold text-texto hidden sm:block">
-                    Arantxa
-                  </span>
-                </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-bg-dark font-bold text-lg">A</span>
               </div>
+              <span className="text-xl font-bold tracking-tight text-white hidden sm:block">Arantxa</span>
             </div>
-
-            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-              <div className="hidden sm:ml-6 sm:block">
-                <div className="flex space-x-4">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      aria-current={
-                        activeSection === item.id ? "page" : undefined
-                      }
-                      className={classNames(
-                        activeSection === item.id
-                          ? "text-texto font-semibold border-b-2 border-boton px-3 py-2 text-sm"
-                          : "text-texto/60 hover:text-texto transition-colors px-3 py-2 text-sm font-medium",
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="hidden sm:flex items-center gap-10">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  aria-current={activeSection === item.id ? "page" : undefined}
+                  className={classNames(
+                    activeSection === item.id
+                      ? "text-primary font-semibold"
+                      : "text-texto-secundario hover:text-primary transition-colors",
+                    "text-sm font-medium"
+                  )}
+                >
+                  {item.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -137,11 +122,11 @@ export const Navbar = () => {
                 key={item.name}
                 as="a"
                 href={item.href}
-                aria-current={activeSection === item.id ? "page" : undefined}
                 className={classNames(
                   activeSection === item.id
-                    ? "text-texto font-semibold border-l-4 border-boton block px-3 py-2 text-base"
-                    : "text-texto/60 hover:text-texto block px-3 py-2 text-base",
+                    ? "text-primary font-semibold border-l-2 border-primary"
+                    : "text-texto-secundario hover:text-primary",
+                  "block px-3 py-2 text-base transition-colors"
                 )}
               >
                 {item.name}

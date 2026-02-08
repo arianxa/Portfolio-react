@@ -204,7 +204,7 @@ export const Projects = () => {
               </AnimatePresence>
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Boton Ver Mas / Ver Menos */}
         <div className="text-center mt-16">
@@ -229,7 +229,7 @@ export const Projects = () => {
             </motion.button>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* Modal */}
       <ProjectModal
