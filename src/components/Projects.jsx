@@ -204,39 +204,39 @@ export const Projects = () => {
               </AnimatePresence>
             </div>
           </div>
-        </div>
 
-        {/* Boton Ver Mas / Ver Menos */}
-        <div className="text-center mt-16">
-          {!showAll ? (
-            <motion.button
-              onClick={() => setShowAll(true)}
-              className="cursor-pointer inline-block px-8 py-3.5 bg-boton text-white font-semibold rounded-lg hover:bg-boton-hover transition-all shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Ver Todos los Proyectos
-            </motion.button>
-          ) : (
-            <motion.button
-              onClick={() => setShowAll(false)}
-              className="cursor-pointer inline-flex items-center px-8 py-3.5 bg-boton text-white font-semibold rounded-lg hover:bg-boton-hover transition-all shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowLeft className="mr-2" size={18} />
-              Ver Menos
-            </motion.button>
-          )}
-        </div>
-      </motion.div>
+          {/* Boton Ver Mas / Ver Menos */}
+          <div className="text-center mt-16">
+            {!showAll ? (
+              <motion.button
+                onClick={() => setShowAll(true)}
+                className="cursor-pointer inline-block px-8 py-3.5 bg-boton text-white font-semibold rounded-lg hover:bg-boton-hover transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Ver Todos los Proyectos
+              </motion.button>
+            ) : (
+              <motion.button
+                onClick={() => setShowAll(false)}
+                className="cursor-pointer inline-flex items-center px-8 py-3.5 bg-boton text-white font-semibold rounded-lg hover:bg-boton-hover transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ArrowLeft className="mr-2" size={18} />
+                Ver Menos
+              </motion.button>
+            )}
+          </div>
+        </section>
 
-      {/* Modal */}
-      <ProjectModal
-        project={selectedProject}
-        projectIndex={selectedIndex}
-        onClose={handleCloseProject}
-      />
+        {/* Modal */}
+        <ProjectModal
+          project={selectedProject}
+          projectIndex={selectedIndex}
+          onClose={handleCloseProject}
+        />
+      </div>
     </section>
   );
 };

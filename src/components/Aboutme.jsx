@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import img_profile from "../assets/img/img_profile.jpeg";
-import { motion } from "framer-motion";
+
 
 export const Aboutme = () => {
   const ref = useRef(null);
@@ -43,7 +43,7 @@ export const Aboutme = () => {
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-4 text-texto">
               Sobre mí
-            </p>
+            </h2>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-texto">
               Conóceme
             </h2>
