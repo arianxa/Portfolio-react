@@ -32,33 +32,58 @@ export const Navbar = () => {
       ticking = true;
       requestAnimationFrame(() => {
         const scrollPosition = window.scrollY + 150;
-        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10) {
+
+        if (
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 10
+        ) {
           setActiveSection("contact");
           ticking = false;
           return;
         }
+
         let currentSection = "hero";
+
         for (const section of sections) {
-          if (section.element.offsetTop <= scrollPosition) currentSection = section.id;
+          if (section.element.offsetTop <= scrollPosition) {
+            currentSection = section.id;
+          }
         }
+
         setActiveSection(currentSection);
         ticking = false;
       });
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <motion.div initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }}>
-      <Disclosure as="nav" className="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-          <div className="relative flex h-20 items-center justify-between">
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <Disclosure
+        as="nav"
+        className="fixed top-0 left-0 right-0 z-50 bg-fondo-claro/95 backdrop-blur-sm border-b border-gray-200/30"
+      >
+        <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
+          <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-texto-sutil hover:text-primary focus:outline-none">
-                <Menu aria-hidden="true" className="block size-6 group-data-open:hidden" />
-                <X aria-hidden="true" className="hidden size-6 group-data-open:block" />
+              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+                <span className="absolute -inset-0.5" />
+                <span className="sr-only">Open main menu</span>
+                <Menu
+                  aria-hidden="true"
+                  className="block size-6 group-data-open:hidden"
+                />
+                <X
+                  aria-hidden="true"
+                  className="hidden size-6 group-data-open:block"
+                />
               </DisclosureButton>
             </div>
             <div className="flex items-center gap-3">
@@ -86,11 +111,12 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
+
         <DisclosurePanel
           transition
-          className="origin-top transition duration-200 ease-out data-closed:-translate-y-6 data-closed:opacity-0 sm:hidden bg-bg-dark/95 backdrop-blur-sm"
+          className="origin-top transition duration-200 ease-out data-closed:-translate-y-6 data-closed:opacity-0 sm:hidden"
         >
-          <div className="space-y-1 px-4 pt-2 pb-4">
+          <div className="space-y-1 px-2 pt-2 pb-3">
             {navigation.map((item) => (
               <DisclosureButton
                 key={item.name}

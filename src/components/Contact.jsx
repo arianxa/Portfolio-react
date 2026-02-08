@@ -1,142 +1,135 @@
+import { Mail, Facebook, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
 
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
+const socialLinks = [
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+const formFields = [
+  { type: "text", placeholder: "Nombre", name: "name" },
+  { type: "email", placeholder: "Correo electrónico", name: "email" },
+  { type: "text", placeholder: "Asunto", name: "subject" },
+];
 
 export const Contact = () => {
   return (
-    <section id="contact" className="relative py-24">
-      <div className="relative z-10 max-w-[960px] mx-auto px-6 lg:px-10 flex flex-col items-center">
-        {/* Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight pb-4 text-texto">
-            Hablemos y{" "}
-            <span className="text-primary">Creemos Algo Juntos</span>
-          </h2>
-          <p className="text-texto-secundario text-lg max-w-2xl mx-auto">
-            Actualmente abierta a oportunidades freelance y posiciones a tiempo
-            completo. ¿Tienes una pregunta o simplemente quieres saludar?
-          </p>
-        </motion.div>
-
-        {/* Form card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-xl bg-primary/5 border border-primary/10 rounded-xl p-8 backdrop-blur-sm"
-        >
-          <motion.form
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
+    <section id="contact" className="py-24 bg-fondo-claro">
+      <motion.h2
+        className="text-5xl md:text-6xl font-bold mb-4 text-texto text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Contacto
+      </motion.h2>
+      <div className="p-4">
+        <div className="grid lg:grid-cols-2 items-start gap-12 p-8 mx-auto max-w-4xl max-lg:max-w-2xl bg-fondo-claro rounded-2xl shadow-2xl border-2 border-borde">
+          {/* Columna izquierda */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
-            onSubmit={(e) => e.preventDefault()}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            {/* Name */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-2">
-              <label className="text-texto text-sm font-medium tracking-wide flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                Nombre
-              </label>
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                required
-                className="neon-glow w-full rounded-lg text-texto border border-primary/20 bg-bg-input focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-14 placeholder:text-texto-sutil/40 px-4 text-base transition-all"
+            <h2 className="text-texto text-3xl font-bold">Hablemos</h2>
+            <p className="text-[15px] text-texto-secundario mt-4 leading-relaxed">
+              Si tienes una idea o proyecto en mente y necesitas ayuda, no dudes
+              en contactarme. Me encantaría saber más sobre tu proyecto.
+            </p>
+
+            <div className="mt-12">
+              <h2 className="text-texto text-base font-semibold">Correo</h2>
+              <ul className="mt-4">
+                <li className="flex items-center">
+                  <div className="bg-fondo-medio h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                    <Mail size={20} className="text-texto" />
+                  </div>
+                  <a href="mailto:info@example.com" className="text-sm ml-4">
+                    <small className="block text-texto">Correo</small>
+                    <span className="text-boton font-medium">
+                      info@example.com
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-12">
+              <h2 className="text-texto text-base font-semibold">
+                Redes Sociales
+              </h2>
+              <ul className="flex mt-4 space-x-4">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <motion.li
+                      key={social.label}
+                      className="bg-fondo-medio h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-boton group transition-colors duration-300"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                      >
+                        <IconComponent
+                          size={20}
+                          className="text-texto group-hover:text-white transition-colors duration-300"
+                        />
+                      </a>
+                    </motion.li>
+                  );
+                })}
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Formulario */}
+          <motion.form
+            className="space-y-4"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
+            {formFields.map((field, index) => (
+              <motion.input
+                key={field.name}
+                type={field.type}
+                placeholder={field.placeholder}
+                className="w-full text-texto rounded-lg py-2.5 px-4 border border-borde text-sm outline-0 focus:border-boton bg-fondo-claro"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + index * 0.1 }}
               />
-            </motion.div>
-
-            {/* Email */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-2">
-              <label className="text-texto text-sm font-medium tracking-wide flex items-center gap-2">
-                <Send className="w-4 h-4 text-primary" />
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                required
-                className="neon-glow w-full rounded-lg text-texto border border-primary/20 bg-bg-input focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-14 placeholder:text-texto-sutil/40 px-4 text-base transition-all"
-              />
-            </motion.div>
-
-            {/* Message */}
-            <motion.div variants={fadeUp} className="flex flex-col gap-2">
-              <label className="text-texto text-sm font-medium tracking-wide flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                Mensaje
-              </label>
-              <textarea
-                placeholder="Cuéntame sobre tu proyecto..."
-                required
-                rows={5}
-                className="neon-glow w-full min-h-36 rounded-lg text-texto border border-primary/20 bg-bg-input focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-texto-sutil/40 p-4 text-base transition-all resize-none"
-              />
-            </motion.div>
-
-            {/* Submit */}
-            <motion.div variants={fadeUp}>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-primary text-bg-dark py-4 px-8 rounded-lg text-lg font-bold hover:brightness-110 transition-all cursor-pointer"
-              >
-                Enviar Mensaje
-                <Send className="w-5 h-5" />
-              </motion.button>
-            </motion.div>
-          </motion.form>
-        </motion.div>
-
-        {/* Social icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 flex flex-col items-center gap-6"
-        >
-          <p className="text-texto-sutil text-sm font-medium uppercase tracking-[0.2em]">
-            Encuéntrame en
-          </p>
-          <div className="flex gap-8">
-            {[
-              { icon: Github, href: "https://github.com/arianxa", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:arantxa@example.com", label: "Email" },
-            ].map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("http") ? "_blank" : undefined}
-                rel={social.href.startsWith("http") ? "noreferrer" : undefined}
-                whileHover={{ scale: 1.2, color: "#0df2f2" }}
-                className="text-texto-secundario transition-all duration-300"
-                aria-label={social.label}
-              >
-                <social.icon className="w-7 h-7" />
-              </motion.a>
             ))}
-          </div>
-        </motion.div>
+            <motion.textarea
+              placeholder="Mensaje"
+              rows="6"
+              className="w-full text-texto rounded-lg px-4 border border-borde text-sm pt-2.5 outline-0 focus:border-boton bg-fondo-claro"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            />
+            <motion.button
+              type="button"
+              className="text-white bg-boton hover:bg-boton-hover rounded-lg text-sm font-semibold px-4 py-2.5 w-full cursor-pointer border-0 mt-2 transition-colors"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Enviar mensaje
+            </motion.button>
+          </motion.form>
+        </div>
       </div>
     </section>
   );

@@ -30,35 +30,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Space Grotesk", sans-serif;
-  background-color: var(--color-bg-dark);
-  color: var(--color-texto);
-}
-
-/* Glass effect */
-.glass-nav {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(13, 242, 242, 0.1);
-}
-
-/* Hero gradient bg */
-.hero-gradient {
-  background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(13, 242, 242, 0.1) 0%, transparent 40%);
-}
-
-/* Neon glow on focus */
-.neon-glow:focus {
-  box-shadow: 0 0 15px rgba(13, 242, 242, 0.3);
-}
-
-/* Project card hover glow */
-.project-card-glow:hover {
-  box-shadow: 0 0 20px rgba(13, 242, 242, 0.15);
-}
-
 /* View Transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -69,3 +40,18 @@ body {
   animation-duration: 0.35s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+/*
+--color-fondo-medio: #d4c4b0; 
+--color-fondo-claro: #faf9ee;
+--color-fondo-medio: #d9c8b4;
+--color-boton: #a0613f;           
+--color-boton-hover: #7d4a2f;*/
+
+/*  --color-fondo-claro: #faf9ee;      
+--color-fondo-medio: #c4b5a0;      
+--color-boton: #8b6f47;           
+--color-boton-hover: #6b5437;*/
+
+/*
+    --color-fondo-claro: #faf9ee; 
+  --color-fondo-medio: #dccfc0;      */
